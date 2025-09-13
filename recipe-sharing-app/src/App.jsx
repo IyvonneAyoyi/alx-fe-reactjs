@@ -21,6 +21,8 @@ function App() {
               <>
                 <RecipeList />
                 <AddRecipeForm />
+                <EditRecipeForm />
+                <DeleteRecipeButton />
               </>
             }
           />
