@@ -1,23 +1,28 @@
-import {create} from 'zustand'
+// src/components/recipeStore.js
+import { create } from 'zustand';
 
-export const useRecipeStore = create(set => ({
+export const useRecipeStore = create((set) => ({
   recipes: [],
-  // Add Recipe
-  addRecipe: (newRecipe) => set(state => ({ recipes: [...state.recipes, newRecipe] })),
+  searchTerm: '',
+  filteredRecipes: [],
 
-  //Delete Recipe by ID
-  deleteRecipe: (id) =>set((state) => ({recipes: state.recipes.filter((recipe) => recipe.id !== id),
-  })),
+  // Add recipe
+  addRecipe: (recipe) =>set((state) => ({ recipes: [...state.recipes, recipe] })),
 
-    //Update Recipe by ID
-updateRecipe: (updatedRecipe) =>
-    set((state) => ({
-      recipes: state.recipes.map((recipe) =>
-        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+  // Update recipe by ID
+  updateRecipe: (updatedRecipe) =>set((state) => ({recipes: state.recipes.map((recipe) =>
+    recipe.id === updatedRecipe.id ? updatedRecipe : recipe
       ),
     })),
 
-  setRecipes: (recipes) => set({ recipes })
-}));
+  // Delete recipe by ID
+  deleteRecipe: (id) =>set((state) => ({recipes: state.recipes.filter((recipe) => recipe.id !== id),
+    })),
 
-console.log(useRecipeStore.getState().recipes);
+  // Search term handling
+  setSearchTerm: (term) =>set((state) => {
+      const filtered = state.recipes.filter((recipe) =>recipe.title.toLowerCase().includes(term.toLowerCase())
+      );
+      return { searchTerm: term, filteredRecipes: filtered };
+    }),
+}));

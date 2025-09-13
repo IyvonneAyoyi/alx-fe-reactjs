@@ -6,6 +6,7 @@ import AddRecipeForm from './components/AddRecipeForm';
 import EditRecipeForm from './components/EditRecipeForm';
 import DeleteRecipeButton from './components/DeleteRecipeButton';
 import RecipeDetails from './components/RecipeDetails';
+import SearchBar from './components/SearchBar';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <AddRecipeForm />
                 <EditRecipeForm />
                 <DeleteRecipeButton />
+                <SearchBar />
               </>
             }
           />
