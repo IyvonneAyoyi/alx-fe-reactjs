@@ -1,4 +1,4 @@
-import create from 'zustand'
+import {create} from 'zustand'
 
 export const useRecipeStore = create(set => ({
   recipes: [],
@@ -7,7 +7,7 @@ export const useRecipeStore = create(set => ({
 
   //Delete Recipe by ID
   deleteRecipe: (id) =>set((state) => ({recipes: state.recipes.filter((recipe) => recipe.id !== id),
-    })),
+  })),
 
     //Update Recipe by ID
 updateRecipe: (updatedRecipe) =>
@@ -19,3 +19,5 @@ updateRecipe: (updatedRecipe) =>
 
   setRecipes: (recipes) => set({ recipes })
 }));
+
+console.log(useRecipeStore.getState().recipes);
