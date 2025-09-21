@@ -26,3 +26,7 @@ github-user-search/.env
 .env
 *.env
 github-user-search/.env
+
+# Environment variables
+.env
+
