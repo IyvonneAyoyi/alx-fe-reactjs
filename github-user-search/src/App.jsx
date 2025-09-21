@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import api from "./services/api";
 import TestComponent from "./components/TestComponent";
-
+import Search from "./components/Search";
 function App() {
   useEffect(() => {
     const fetchUser = async () => {
@@ -21,6 +21,7 @@ function App() {
       <h1>GitHub User Search App</h1>
       <p>Check the console for API test results ✅</p>
       <TestComponent />
+      <Search/ >
     </div>
   );
 }
