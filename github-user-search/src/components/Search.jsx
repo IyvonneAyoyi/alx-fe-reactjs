@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { fetchAdvancedUsers } from "../services/githubService";
+import { fetchUserData, fetchAdvancedUsers } from "../services/githubService";
 
 const Search = () => {
   const [username, setUsername] = useState("");
   const [location, setLocation] = useState("");
   const [minRepos, setMinRepos] = useState("");
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -14,10 +15,18 @@ const Search = () => {
     setLoading(true);
     setError("");
     setUsers([]);
+    setUser(null);
 
     try {
-      const data = await fetchAdvancedUsers(username, location, minRepos);
-      setUsers(data.items || []);
+      // ✅ If only username is given → basic search
+      if (username && !location && !minRepos) {
+        const data = await fetchUserData(username);
+        setUser(data);
+      } else {
+        // ✅ Advanced search
+        const data = await fetchAdvancedUsers(username, location, minRepos);
+        setUsers(data.items || []);
+      }
     } catch {
       setError("Looks like we cant find the user");
     } finally {
@@ -60,6 +69,29 @@ const Search = () => {
       {loading && <p className="mt-4 text-blue-600">Loading...</p>}
       {error && <p className="mt-4 text-red-600">{error}</p>}
 
+      {/* ✅ Single user (basic search) */}
+      {user && (
+        <div className="mt-6 p-4 border rounded flex items-center gap-4">
+          <img
+            src={user.avatar_url}
+            alt={user.login}
+            className="w-16 h-16 rounded-full"
+          />
+          <div>
+            <h2 className="font-bold text-lg">{user.name || user.login}</h2>
+            <a
+              href={user.html_url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Visit Profile
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* ✅ Multiple users (advanced search) */}
       <div className="mt-6 space-y-4">
         {users.map((user) => (
           <div
@@ -81,10 +113,6 @@ const Search = () => {
               >
                 View Profile
               </a>
-              {user.location && <p>📍 {user.location}</p>}
-              {user.public_repos !== undefined && (
-                <p>Repos: {user.public_repos}</p>
-              )}
             </div>
           </div>
         ))}
