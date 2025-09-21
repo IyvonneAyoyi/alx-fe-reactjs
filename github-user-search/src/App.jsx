@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import api from "./services/api";
+import TestComponent from "./components/TestComponent";
 
 function App() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
     <div>
       <h1>GitHub User Search App</h1>
       <p>Check the console for API test results ✅</p>
+      <TestComponent />
     </div>
   );
 }
