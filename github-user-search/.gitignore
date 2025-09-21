@@ -23,3 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 github-user-search/.env
+.env
+*.env
