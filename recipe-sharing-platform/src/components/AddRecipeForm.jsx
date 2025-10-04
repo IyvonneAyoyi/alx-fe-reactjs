@@ -25,4 +25,10 @@ const AddRecipeForm = () => {
     setError("");
     alert("Recipe submitted successfully!");
 
+    // Reset form
+    setTitle("");
+    setIngredients("");
+    setInstructions("");
+  };
+
     
