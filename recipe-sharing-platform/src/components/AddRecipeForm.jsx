@@ -13,3 +13,16 @@ const AddRecipeForm = () => {
       setError("All fields are required!");
       return;
     }
+
+    // Convert textarea inputs into arrays
+    const newRecipe = {
+      title,
+      ingredients: ingredients.split("\n"),
+      instructions: instructions.split("\n"),
+    };
+
+    console.log("New Recipe Submitted:", newRecipe);
+    setError("");
+    alert("Recipe submitted successfully!");
+
+    
