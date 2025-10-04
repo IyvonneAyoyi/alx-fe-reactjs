@@ -3,24 +3,84 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "200g spaghetti",
+      "2 large eggs",
+      "50g grated Parmesan",
+      "100g bacon",
+      "Salt & black pepper to taste"
+    ],
+    "instructions": [
+      "Boil pasta in salted water until al dente.",
+      "Fry bacon until crispy.",
+      "Whisk eggs and Parmesan in a bowl.",
+      "Drain pasta and toss with bacon and egg mixture off the heat.",
+      "Serve immediately with extra Parmesan."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "500g chicken breast",
+      "1 cup plain yogurt",
+      "2 tbsp tikka masala paste",
+      "1 cup tomato puree",
+      "1/2 cup cream",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and tikka masala paste for at least 1 hour.",
+      "Grill or pan-fry chicken until cooked through.",
+      "Prepare tomato-based gravy in a pan.",
+      "Add chicken pieces and simmer for 10 minutes.",
+      "Finish with cream and serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Veggie Stir Fry",
     "summary": "A quick and healthy vegetable stir fry packed with flavor and crunch.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "1 cup broccoli florets",
+      "1 cup sliced carrots",
+      "1 bell pepper, sliced",
+      "2 tbsp soy sauce",
+      "1 tbsp sesame oil",
+      "1 tsp grated ginger"
+    ],
+    "instructions": [
+      "Heat sesame oil in a wok or pan.",
+      "Add ginger and stir-fry for 30 seconds.",
+      "Add vegetables and stir-fry for 3–4 minutes.",
+      "Pour soy sauce and toss until veggies are tender but crisp.",
+      "Serve hot over steamed rice or noodles."
+    ]
   },
   {
     "id": 4,
     "title": "Chocolate Lava Cake",
     "summary": "A rich chocolate cake with a gooey molten center served warm.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "100g dark chocolate",
+      "50g butter",
+      "2 eggs",
+      "1/4 cup sugar",
+      "2 tbsp flour",
+      "Butter for greasing ramekins"
+    ],
+    "instructions": [
+      "Preheat oven to 200°C (400°F).",
+      "Melt chocolate and butter together until smooth.",
+      "Whisk eggs and sugar until light and fluffy.",
+      "Fold chocolate mixture and flour into egg mixture.",
+      "Pour batter into greased ramekins and bake for 10–12 minutes.",
+      "Serve warm with ice cream."
+    ]
   }
 ]
