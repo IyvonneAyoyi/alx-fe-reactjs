@@ -13,13 +13,16 @@ const PostsComponent = () => {
   const {
     data,
     error,
-    isError,   // add isError
+    isError,
     isLoading,
     isFetching,
     refetch,
   } = useQuery("posts", fetchPosts, {
     // cache for 5 minutes
     cacheTime: 1000 * 60 * 5,
+
+    // data is considered fresh for 1 minute
+    staleTime: 1000 * 60, //  added staleTime
 
     // prevents refetch when window is focused
     refetchOnWindowFocus: false,
@@ -29,8 +32,7 @@ const PostsComponent = () => {
   });
 
   if (isLoading) return <p>Loading posts...</p>;
-  /* update to use isError */
-  if (isError) return <p>Error: {error.message}</p>;  
+  if (isError) return <p>Error: {error.message}</p>;
 
   return (
     <div>
