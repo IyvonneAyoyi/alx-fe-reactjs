@@ -3,19 +3,23 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./components/Profile";
+import ProfileDetails from "./components/ProfileDetails";
+import ProfileSettings from "./components/ProfileSettings";
 import Post from "./pages/Post";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const isAuthenticated = false; // simulate login (change to true for testing protected route)
+  // simulate login (change to true for testing protected route)
+  const isAuthenticated = false; 
 
   return (
     <Router>
       <Routes>
+        {/* Public routes */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        
-        {/* Protected route example */}
+
+        {/* Protected route with nested children */}
         <Route
           path="/profile/*"
           element={
@@ -23,7 +27,10 @@ function App() {
               <Profile />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="details" element={<ProfileDetails />} />
+          <Route path="settings" element={<ProfileSettings />} />
+        </Route>
 
         {/* Dynamic route example */}
         <Route path="/post/:id" element={<Post />} />
