@@ -5,12 +5,11 @@ import About from "./pages/About";
 import Profile from "./components/Profile";
 import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
-import Post from "./pages/Post";
+import BlogPost from "./pages/Post"; 
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  // simulate login (change to true for testing protected route)
-  const isAuthenticated = false; 
+  const isAuthenticated = false; // simulate login
 
   return (
     <Router>
@@ -32,8 +31,8 @@ function App() {
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
 
-        {/* Dynamic route example */}
-        <Route path="/post/:id" element={<Post />} />
+        {/* Dynamic route for blog post */}
+        <Route path="/blog/:id" element={<BlogPost />} />
 
         {/* Redirect for unknown routes */}
         <Route path="*" element={<Navigate to="/" replace />} />
