@@ -44,20 +44,30 @@ const TodoList = () => {
       </form>
 
       <ul>
-        {todos.map((todo) => (
-          <li
-            key={todo.id}
-            onClick={() => toggleTodo(todo.id)}
-            style={{
-              textDecoration: todo.completed ? "line-through" : "none",
-              cursor: "pointer",
-            }}
-          >
-            {todo.text}
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+  {todos.map((todo) => (
+    <li
+      key={todo.id}
+      onClick={() => toggleTodo(todo.id)}
+      style={{
+        textDecoration: todo.completed ? "line-through" : "none",
+        cursor: "pointer",
+      }}
+    >
+      {todo.text}
+      {/* Stop click event from bubbling to <li> */}
+      <button
+        onClick={(e) => {
+            // Prevent toggle when deleting
+          e.stopPropagation(); 
+          deleteTodo(todo.id);
+        }}
+      >
+        Delete
+      </button>
+    </li>
+  ))}
+</ul>
+
     </div>
   );
 };
