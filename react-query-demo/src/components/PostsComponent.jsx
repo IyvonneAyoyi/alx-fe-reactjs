@@ -8,7 +8,13 @@ const fetchPosts = async () => {
 };
 
 function PostsComponent() {
-  const { data, error, isLoading, isError } = useQuery("posts", fetchPosts);
+  const { data, error, isLoading, isError, refetch, isFetching } = useQuery(
+    "posts",
+    fetchPosts,
+    {
+      staleTime: 60000, // 1 minute caching
+    }
+  );
 
   if (isLoading) return <p>Loading posts...</p>;
   if (isError) return <p style={{ color: "red" }}>Error: {error.message}</p>;
@@ -16,6 +22,9 @@ function PostsComponent() {
   return (
     <div>
       <h2>Posts</h2>
+      <button onClick={() => refetch()} disabled={isFetching}>
+        {isFetching ? "Refreshing..." : "Refetch Posts"}
+      </button>
       <ul>
         {data.slice(0, 10).map((post) => (
           <li key={post.id}>
